@@ -22,3 +22,9 @@ rails g cancan:ability
 ```
 AdminUser.create!(email: 'niko@tacticaltech.org', password: '12345678', password_confirmation: '12345678')
 ```
+
+## add model to active admin
+
+```
+rails generate active_admin:resource [MyModelName]
+```

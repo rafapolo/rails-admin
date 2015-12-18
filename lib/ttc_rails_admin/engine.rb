@@ -27,6 +27,10 @@ module TtcRailsAdmin
       end
     end
 
+    initializer :assets do
+	Rails.application.config.assets.precompile += %w( ckeditor/* )
+    end
+
 
   end
 end

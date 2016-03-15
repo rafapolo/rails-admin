@@ -39,7 +39,7 @@ module TtcRailsAdmin
       config.sign_out_via = :delete
     end
 
-    # configure paperclip
+    # configure Paperclip
     Paperclip::Attachment.default_options[:path] = ":rails_root/public/media/:class/:attachment/:style/:filename"
     Paperclip::Attachment.default_options[:url] = "/media/:class/:attachment/:style/:filename"
     Paperclip::Attachment.default_options[:default_url] = "/media/missing.png"

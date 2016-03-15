@@ -6,7 +6,7 @@ Includes
   - cancancan
   - ckeditor
 
-this engine automatically configures everythin admin and ckeditor related!!!
+this engine automatically configures everything related to the Admin, such as Devise, CKeditor and Paperclip.
 
 ```
 rails generate active_admin:install

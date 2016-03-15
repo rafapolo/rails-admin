@@ -26,8 +26,9 @@ module TtcRailsAdmin
     end
 
     # configure Devise
-    Devise.setup do |config|  config.secret_key = ENV['SECRET_KEY'] || SecureRandom.hex(128)
-      config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
+    Devise.setup do |config|
+      config.secret_key = ENV['SECRET_KEY'] || SecureRandom.hex(128)
+      config.mailer_sender = ENV["APP_EMAIL"]
       require 'devise/orm/active_record'
       config.case_insensitive_keys = [:email]
       config.strip_whitespace_keys = [:email]
@@ -56,12 +57,6 @@ module TtcRailsAdmin
       ActiveAdmin.setup do |config|
         config.register_javascript 'ckeditor/init.js'
         #config.authorization_adapter = ActiveAdmin::CanCanAdapter
-      end
-    end
-
-    initializer :devise do
-      Devise.setup do |config|
-        config.secret_key = ENV['SECRET_KEY'] || SecureRandom.hex(128)
       end
     end
 

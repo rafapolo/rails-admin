@@ -7,6 +7,7 @@ module TtcRailsAdmin
     require 'cancancan'
     require 'paperclip'
     require 'ckeditor'
+    require 'securerandom'
 
     # configure ActiveAdmin
     ActiveAdmin.setup do |config|
@@ -25,7 +26,7 @@ module TtcRailsAdmin
     end
 
     # configure Devise
-    Devise.setup do |config|  config.secret_key = ENV["SECRET_KEY"] || "6469e6404fb04d46d0621396ed9c56572b53592a86dd121058b89d97e6b9f255586remote1cc0be444d560a36909f055eafa01d8087e047474600e8175ab3e"
+    Devise.setup do |config|  config.secret_key = ENV['SECRET_KEY'] || SecureRandom.hex(128)
       config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
       require 'devise/orm/active_record'
       config.case_insensitive_keys = [:email]
@@ -60,7 +61,7 @@ module TtcRailsAdmin
 
     initializer :devise do
       Devise.setup do |config|
-        config.secret_key = ENV['SECRET_KEY'] || 'e46636bbb73fe835c27708af16ff8f052d1a1a8b1bf38c025132e33f06fd92bf0916c457980cdae93e3d769b50ba457c67fc9e0f2962b908c801f1f2'
+        config.secret_key = ENV['SECRET_KEY'] || SecureRandom.hex(128)
       end
     end
 
@@ -70,4 +71,3 @@ module TtcRailsAdmin
 
   end
 end
-

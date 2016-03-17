@@ -8,11 +8,11 @@ require 'securerandom'
 module TtcRailsAdmin
   class Engine < ::Rails::Engine
     isolate_namespace TtcRailsAdmin
-
     config.autoload_paths << File.expand_path('../../', __FILE__)
+    app = Rails.application
 
+    initializer :rails_admin do
     # configure ActiveAdmin
-    initializer :active_admin do
       ActiveAdmin.setup do |config|
         config.site_title = "Admin"
         config.site_title_link = "/admin"
@@ -21,13 +21,14 @@ module TtcRailsAdmin
         config.logout_link_path = :destroy_admin_user_session_path
         config.comments = false
         config.batch_actions = true
-        config.register_javascript 'ckeditor/init.js'
+        app.config.assets.precompile += %w( active_admin.js active_admin.css active_admin/print.css )
       end
 
       # configure CkEditor
       Ckeditor.setup do |config|
-        Rails.application.config.assets.precompile += %w( ckeditor/* )
         require "ckeditor/orm/active_record"
+        app.config.autoload_paths += %W(#{app.root}/app/models/ckeditor)
+        app.config.assets.precompile += %w( ckeditor/* )
       end
 
       # configure Paperclip
@@ -38,9 +39,9 @@ module TtcRailsAdmin
 
       # configure Devise
       Devise.setup do |config|
+        require 'devise/orm/active_record'
         config.secret_key = ENV['SECRET_KEY'] || SecureRandom.hex(128)
         config.mailer_sender = ENV["APP_EMAIL"]
-        require 'devise/orm/active_record'
         config.case_insensitive_keys = [:email]
         config.strip_whitespace_keys = [:email]
         config.skip_session_storage = [:http_auth]
@@ -51,10 +52,6 @@ module TtcRailsAdmin
         config.reset_password_within = 6.hours
         config.sign_out_via = :delete
       end
-    end
-
-    initializer :ttc_rails_admin do
-      config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
     end
 
   end

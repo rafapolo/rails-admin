@@ -2,7 +2,7 @@ $:.push File.expand_path("../lib", __FILE__)
 
 Gem::Specification.new do |s|
   s.name        = "ttc_rails_admin"
-  s.version     = "0.0.7"
+  s.version     = "0.0.8"
   s.authors     = ["Niko"]
   s.email       = ["niko@niko.io"]
   s.homepage    = "https://git.tacticaltech.org/ttc/rails-admin"

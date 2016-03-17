@@ -23,10 +23,10 @@ module TtcRailsAdmin
         config.batch_actions = true
         config.register_javascript 'ckeditor/init.js'
       end
-      Rails.application.config.assets.precompile += %w( ckeditor/* )
 
       # configure CkEditor
       Ckeditor.setup do |config|
+        Rails.application.config.assets.precompile += %w( ckeditor/* )
         require "ckeditor/orm/active_record"
       end
 

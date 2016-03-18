@@ -5,6 +5,8 @@ require 'paperclip'
 require 'ckeditor'
 require 'securerandom'
 
+require "generators/initializers/templates/admin_generator"
+
 module TtcRailsAdmin
   class Engine < ::Rails::Engine
     isolate_namespace TtcRailsAdmin

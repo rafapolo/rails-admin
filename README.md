@@ -1,33 +1,29 @@
-# TtcRailsAdmin
+# TTC Admin
 
-Includes
-  - Activeadmin
-  - devise
-  - cancancan
-  - ckeditor
+The TTC Admin are a set of gems, configurations and tasks that allow Rails apps to have all they need to manage content.
 
-this engine automatically configures everything related to the Admin, such as Devise, CKeditor and Paperclip.
-
+It consists of
 ```
-rails generate active_admin:install
-```
-
-```
-rake db:migrate
+gem 'activeadmin', '~> 1.0.0.pre1'  # to /admin
+gem 'devise',      '~> 3.5'         # to authentication
+gem 'execjs',      '>= 0.3.0'       # jsruntime
+gem 'ckeditor',    '>= 4.1.2'       # text editor
+gem 'paperclip',   '>= 4.3.0'       # integrated upload
+gem 'cancancan',   '>= 1.13'        # authorizations roles
 ```
 
+Add it to your Rails project Gemfile:
 ```
-rails g cancan:ability
-```
-
-```
-rails generate ckeditor:install --orm=active_record --backend=paperclip
-bundle exec rake db:migrate
+  gem 'ttc_rails_admin', :git => 'git@git.tacticaltech.org:ttc/tcc_rails_admin.git'
 ```
 
-
-## create your first admin user
+Setup
 
 ```
-AdminUser.create!(email: 'niko@tacticaltech.org', password: '12345678', password_confirmation: '12345678')
+  bundle exec rails generate admin setup
+```
+
+Create your first admin user
+```
+AdminUser.create!(email: 'you@tacticaltech.org', password: 'longpassword', password_confirmation: 'longpassword')
 ```

@@ -1,7 +1,7 @@
 class AdminGenerator < Rails::Generators::NamedBase
   source_root File.expand_path("..", __FILE__)
 
-  def create
+  def setup
     copy_file "20160318154904_devise_create_admin_users.rb", "db/migrate/20160318154904_devise_create_admin_users.rb"
     copy_file "devise.en.yml", "config/locales/devise.en.yml"
     copy_file "admin_user.rb", "app/models/admin_user.rb"

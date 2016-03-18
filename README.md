@@ -20,7 +20,7 @@ Add it to your Rails project Gemfile:
 Setup
 
 ```
-  bundle exec rails generate admin setup
+  bundle install & bundle exec rails generate admin setup
 ```
 
 Create your first admin user

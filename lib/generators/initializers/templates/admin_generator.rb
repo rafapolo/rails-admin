@@ -1,3 +1,4 @@
+require 'rails/generators'
 class AdminGenerator < Rails::Generators::NamedBase
   source_root File.expand_path("..", __FILE__)
 

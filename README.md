@@ -1,4 +1,4 @@
-# Extrapolo Admin
+# ExtraPolo Admin
 
 The rails-admin are a set of gems, configurations and tasks that allow Rails apps to have all they need to manage content.
 
@@ -25,5 +25,5 @@ Setup
 
 Create your first admin user
 ```
-AdminUser.create!(email: 'you@tacticaltech.org', password: 'longpassword', password_confirmation: 'longpassword')
+AdminUser.create!(email: 'you@mail.org', password: 'longpassword', password_confirmation: 'longpassword')
 ```

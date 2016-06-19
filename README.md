@@ -1,6 +1,6 @@
-# TTC Admin
+# Extrapolo Admin
 
-The TTC Admin are a set of gems, configurations and tasks that allow Rails apps to have all they need to manage content.
+The rails-admin are a set of gems, configurations and tasks that allow Rails apps to have all they need to manage content.
 
 It consists of
 ```
@@ -14,7 +14,7 @@ gem 'cancancan',   '>= 1.13'        # authorizations roles
 
 Add it to your Rails project Gemfile:
 ```
-  gem 'ttc_rails_admin', :git => 'git@git.tacticaltech.org:ttc/tcc_rails_admin.git'
+  gem 'rails_admin', :git => 'git@github.com:rafapolo/rails-admin.git'
 ```
 
 Setup
